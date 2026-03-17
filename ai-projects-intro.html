@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI助手帮我生成的网站 - 李文杰的作品</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff, #e94560);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.1em;
+        }
+        
+        .intro-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .intro-card h2 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .intro-card p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .projects {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-card h3 {
+            color: #fff;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-card .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: normal;
+        }
+        
+        .project-card .description {
+            color: #a0a0a0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-card .features {
+            margin-bottom: 20px;
+        }
+        
+        .project-card .features li {
+            color: #ccc;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .project-card .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #e94560, #c73659);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .how-it-works {
+            margin-top: 40px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        
+        .step h4 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(233, 69, 96, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            color: #e94560;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">🐕</div>
+            <h1>我的AI助手作品</h1>
+            <p class="subtitle">基于OpenClaw + 旺财AI 生成的个人项目</p>
+        </header>
+        
+        <div class="intro-card">
+            <h2>🤖 AI是如何帮我做网站的？</h2>
+            <p>我通过OpenClaw的AI助手"旺财"帮我快速生成网站原型。整个过程非常高效：</p>
+            <p>🎯 <strong>告诉AI我的需求</strong> → AI生成完整代码 → 自动部署到GitHub Pages → 拿到分享链接</p>
+            <p>我只需要说出我的想法，AI就能帮我完成包括前端页面、PRD文档、部署脚本在内的完整项目。</p>
+            <div class="ai-badge">
+                <span>🐕</span>
+                <span>Powered by 旺财 AI助手</span>
+            </div>
+        </div>
+        
+        <div class="projects">
+            <div class="project-card">
+                <h3>🏠 个人网站 <span class="tag">3D交互</span></h3>
+                <p class="description">一个充满创意的个人展示网站，包含3D交互元素和个人作品集。</p>
+                <ul class="features">
+                    <li>3D游戏/交互效果</li>
+                    <li>响应式设计，支持手机和电脑</li>
+                    <li>个人作品集展示</li>
+                    <li>流畅的动画体验</li>
+                </ul>
+                <a href="https://huerhai.github.io/liwenjie-personal-site/" target="_blank" class="project-link">
+                    🔗 访问网站
+                </a>
+            </div>
+            
+            <div class="project-card">
+                <h3>🏥 平安健康险技能市场 <span class="tag">保险行业</span></h3>
+                <p class="description">为平安健康险打造的技能市场平台，用于展示和管理AI技能。</p>
+                <ul class="features">
+                    <li>前台首页 + 技能详情页</li>
+                    <li>后台管理系统</li>
+                    <li>完整的PRD文档（可直接给研发）</li>
+                    <li>一键部署脚本</li>
+                    <li>保险行业专业设计风格</li>
+                </ul>
+                <a href="https://huerhai.github.io/pingan-skill-market/" target="_blank" class="project-link">
+                    🔗 访问网站
+                </a>
+            </div>
+        </div>
+        
+        <div class="how-it-works">
+            <div class="intro-card">
+                <h2>🚀 我是怎么让AI帮我做网站的？</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>说出需求</h4>
+                        <p>告诉AI你想要什么网站，比如"帮我做一个个人网站"或"做一个保险行业的技能市场"</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>AI生成代码</h4>
+                        <p>AI自动生成完整的HTML/CSS/JS代码，包括页面设计、交互逻辑、响应式布局</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>自动部署</h4>
+                        <p>AI帮我创建GitHub仓库，一键部署到GitHub Pages，生成可分享的链接</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>获得成品</h4>
+                        <p>直接拿到可访问的网站链接，可以分享给同事朋友看！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>📅 生成时间: 2026-03-17</p>
+            <p>💡 想让你的AI助手帮你做网站？试试告诉它你的想法吧！</p>
+        </footer>
+    </div>
+</body>
+</html>
